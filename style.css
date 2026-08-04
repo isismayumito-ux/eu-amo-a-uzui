@@ -1,0 +1,126 @@
+/* Configuração do fundo da página */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0a0d29; /* Cor de fundo caso a imagem falhe */
+    position: relative;
+    min-height: 100vh;
+
+    /* --- ADICIONADO PARA CENTRALIZAR O CONTEÚDO --- */
+    display: flex;
+    justify-content: center; /* Centraliza tudo na horizontal */
+    align-items: center;     /* Centraliza a estrutura verticalmente na tela */
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Cria uma camada exclusiva para a imagem de fundo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* SUA IMAGEM MANTIDA AQUI */
+    background-image: url('https://i.pinimg.com/736x/0a/f2/67/0af267f0405a8e616713a1f795750b62.jpg'); 
+    
+    background-size: cover;       /* Faz a imagem cobrir a tela toda */
+    background-position: center;  /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não deixa a imagem se repetir */
+    
+    /* CONTROLE DA OPACIDADE (De 0 a 1) */
+    opacity: 0.15;                /* 15% de opacidade */
+    
+    z-index: -1;                  /* Garante que a imagem fique ATRÁS de tudo */
+}
+
+/* --- ESTRUTURA DO CONTEÚDO DA PÁGINA --- */
+
+/* Envolvente principal que obriga tudo a ficar em COLUNA */
+.pagina-container {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column; /* Garante que o quadro fique ABAIXO dos títulos */
+    align-items: center;    /* Alinha o cabeçalho e a caixa no centro */
+}
+
+/* Títulos (Cabeçalho) */
+.cabecalho {
+    text-align: center;
+    margin-bottom: 2rem;    /* Espaço entre os títulos e o quadro */
+    width: 100%;
+}
+
+.cabecalho h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cabecalho h2 {
+    color: #a5b4fc;         /* Azul claro para combinar com o fundo escuro */
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.quadro-mensagens {
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+    background-color: rgba(255, 253, 253, 0.233); 
+    border: 1px solid rgba(255, 255, 255, 0.466);
+    border-radius: 12px;
+    padding: 2rem;
+    
+    /* --- ADICIONE ESTAS DUAS LINHAS AQUI --- */
+    display: flex;
+    flex-direction: column; /* OBRIGA os elementos internos a ficarem UM EMBAIXO DO OUTRO */
+    gap: 12px;              /* Espaçamento entre o texto e o link */
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Prepara o quadro para posicionar as imagens dentro dele */
+.quadro-mensagens {
+    position: relative; /* ESSENCIAL para o posicionamento funcionar */
+}
+
+/* Estilo base das molduras circulares */
+.moldura-circular {
+    position: absolute;
+    
+    /* AUMENTE AQUI (exemplo: mudando de 80px para 120px) */
+    width: 200px;  
+    height: 200px; 
+    
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffffe5;
+    box-shadow: 0 4px 15px rgba(250, 249, 249, 0.651);
+    z-index: 10;
+}
+
+.moldura-circular img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Posicionamento da Imagem 1: Canto Superior Esquerdo (Afastada) */
+.imagem-topo-esquerda {
+    top: 200px;   /* Aumente o valor negativo para afastar mais para cima */
+    left: 200px;  /* Aumente o valor negativo para afastar mais para a esquerda */
+}
+
+/* Posicionamento da Imagem 2: Canto Inferior Direito (Afastada) */
+.imagem-baixo-direita {
+    bottom: 200px; /* Aumente o valor negativo para afastar mais para baixo */
+    right: 200px;  /* Aumente o valor negativo para afastar mais para a direita */
+}
